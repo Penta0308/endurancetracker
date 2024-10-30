@@ -28,8 +28,8 @@ inline fun <reified T> Mat.at(row: Int, col: Int) : Atable<T> =
             row,
             col
         )
-        UByte::class -> AtableUByte(this, row, col) as Atable<T>
-        UShort::class -> AtableUShort(this, row, col) as Atable<T>
+        UByte::class -> AtableUByte(this, row, col)
+        UShort::class -> AtableUShort(this, row, col)
         else -> throw RuntimeException("Unsupported class type")
     }
 
@@ -40,8 +40,8 @@ inline fun <reified T> Mat.at(idx: IntArray) : Atable<T> =
             T::class.java,
             idx
         )
-        UByte::class -> AtableUByte(this, idx) as Atable<T>
-        UShort::class -> AtableUShort(this, idx) as Atable<T>
+        UByte::class -> AtableUByte(this, idx)
+        UShort::class -> AtableUShort(this, idx)
         else -> throw RuntimeException("Unsupported class type")
     }
 

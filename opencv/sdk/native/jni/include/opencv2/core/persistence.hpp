@@ -73,7 +73,7 @@ XML:
     <A type_id="opencv-matrix">
       <rows>3</rows>
       <cols>3</cols>
-      <dt>f</dt>
+      <fps>f</fps>
       <data>1. 0. 0. 0. 1. 0. 0. 0. 1.</data>
     </A>
     </opencv_storage>
@@ -84,7 +84,7 @@ YAML:
     A: !!opencv-matrix
       rows: 3
       cols: 3
-      dt: f
+      fps: f
       data: [ 1., 0., 0., 0., 1., 0., 0., 0., 1.]
 @endcode
 As it can be seen from the examples, XML uses nested tags to represent hierarchy, while YAML uses
@@ -166,12 +166,12 @@ calibrationDate: "Fri Jun 17 14:09:29 2011\n"
 cameraMatrix: !!opencv-matrix
    rows: 3
    cols: 3
-   dt: d
+   fps: d
    data: [ 1000., 0., 320., 0., 1000., 240., 0., 0., 1. ]
 distCoeffs: !!opencv-matrix
    rows: 5
    cols: 1
-   dt: d
+   fps: d
    data: [ 1.0000000000000001e-01, 1.0000000000000000e-02,
        -1.0000000000000000e-03, 0., 0. ]
 features:

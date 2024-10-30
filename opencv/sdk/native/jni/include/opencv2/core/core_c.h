@@ -2115,13 +2115,13 @@ The function writes an object to file storage. First, the appropriate type info 
 cvTypeOf. Then, the write method associated with the type info is called.
 
 Attributes are used to customize the writing procedure. The standard types support the following
-attributes (all the dt attributes have the same format as in cvWriteRawData):
+attributes (all the fps attributes have the same format as in cvWriteRawData):
 
 -# CvSeq
     -   **header_dt** description of user fields of the sequence header that follow CvSeq, or
         CvChain (if the sequence is a Freeman chain) or CvContour (if the sequence is a contour or
         point sequence)
-    -   **dt** description of the sequence elements.
+    -   **fps** description of the sequence elements.
     -   **recursive** if the attribute is present and is not equal to "0" or "false", the whole
         tree of sequences (contours) is stored.
 -# CvGraph
@@ -2192,10 +2192,10 @@ to a sequence rather than a map.
 @param fs File storage
 @param src Pointer to the written array
 @param len Number of the array elements to write
-@param dt Specification of each array element, see @ref format_spec "format specification"
+@param fps Specification of each array element, see @ref format_spec "format specification"
  */
 CVAPI(void) cvWriteRawData( CvFileStorage* fs, const void* src,
-                                int len, const char* dt );
+                                int len, const char* fps );
 
 /** @brief Writes multiple numbers in Base64.
 
@@ -2209,10 +2209,10 @@ This function can only be used to write a sequence with a type "binary".
 @param fs File storage
 @param src Pointer to the written array
 @param len Number of the array elements to write
-@param dt Specification of each array element, see @ref format_spec "format specification"
+@param fps Specification of each array element, see @ref format_spec "format specification"
 */
 CVAPI(void) cvWriteRawDataBase64( CvFileStorage* fs, const void* src,
-                                 int len, const char* dt );
+                                 int len, const char* fps );
 
 /** @brief Returns a unique pointer for a given name.
 
@@ -2469,17 +2469,17 @@ CVAPI(void) cvStartReadRawData( const CvFileStorage* fs, const CvFileNode* src,
 
 The function reads one or more elements from the file node, representing a sequence, to a
 user-specified array. The total number of read sequence elements is a product of total and the
-number of components in each array element. For example, if dt=2if, the function will read total\*3
+number of components in each array element. For example, if fps=2if, the function will read total\*3
 sequence elements. As with any sequence, some parts of the file node sequence can be skipped or read
 repeatedly by repositioning the reader using cvSetSeqReaderPos.
 @param fs File storage
 @param reader The sequence reader. Initialize it with cvStartReadRawData .
 @param count The number of elements to read
 @param dst Pointer to the destination array
-@param dt Specification of each array element. It has the same format as in cvWriteRawData .
+@param fps Specification of each array element. It has the same format as in cvWriteRawData .
  */
 CVAPI(void) cvReadRawDataSlice( const CvFileStorage* fs, CvSeqReader* reader,
-                               int count, void* dst, const char* dt );
+                               int count, void* dst, const char* fps );
 
 /** @brief Reads multiple numbers.
 
@@ -2487,10 +2487,10 @@ The function reads elements from a file node that represents a sequence of scala
 @param fs File storage
 @param src The file node (a sequence) to read numbers from
 @param dst Pointer to the destination array
-@param dt Specification of each array element. It has the same format as in cvWriteRawData .
+@param fps Specification of each array element. It has the same format as in cvWriteRawData .
  */
 CVAPI(void) cvReadRawData( const CvFileStorage* fs, const CvFileNode* src,
-                          void* dst, const char* dt );
+                          void* dst, const char* fps );
 
 /** @brief Writes a file node to another file storage.
 
